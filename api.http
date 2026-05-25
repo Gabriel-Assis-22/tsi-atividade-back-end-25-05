@@ -1,0 +1,106 @@
+@baseUrl = http://localhost:3000
+
+### 1. Rota Raiz (Verificar documentação básica)
+GET {{baseUrl}}/
+Accept: application/json
+
+### ==========================================
+### GÊNEROS
+### ==========================================
+
+### Cadastrar Gênero 1 (Ação)
+POST {{baseUrl}}/generos
+Content-Type: application/json
+
+{
+  "nome": "Ação"
+}
+
+### Cadastrar Gênero 2 (RPG)
+POST {{baseUrl}}/generos
+Content-Type: application/json
+
+{
+  "nome": "RPG"
+}
+
+### Cadastrar Gênero 3 (Aventura)
+POST {{baseUrl}}/generos
+Content-Type: application/json
+
+{
+  "nome": "Aventura"
+}
+
+### Listar Gêneros (Traz jogos e plataformas associadas)
+GET {{baseUrl}}/generos
+Accept: application/json
+
+
+### ==========================================
+### PLATAFORMAS
+### ==========================================
+
+### Cadastrar Plataforma 1 (PC)
+POST {{baseUrl}}/plataformas
+Content-Type: application/json
+
+{
+  "nome": "PC"
+}
+
+### Cadastrar Plataforma 2 (PlayStation 5)
+POST {{baseUrl}}/plataformas
+Content-Type: application/json
+
+{
+  "nome": "PlayStation 5"
+}
+
+### Cadastrar Plataforma 3 (Xbox Series X)
+POST {{baseUrl}}/plataformas
+Content-Type: application/json
+
+{
+  "nome": "Xbox Series X"
+}
+
+### Listar Plataformas (Traz jogos associados e seus gêneros)
+GET {{baseUrl}}/plataformas
+Accept: application/json
+
+
+### ==========================================
+### JOGOS
+### ==========================================
+
+### Cadastrar Jogo 1 (Associado ao Gênero 2 - RPG)
+POST {{baseUrl}}/jogos
+Content-Type: application/json
+
+{
+  "titulo": "The Witcher 3: Wild Hunt",
+  "idGenero": 2
+}
+
+### Cadastrar Jogo 2 (Associado ao Gênero 1 - Ação)
+POST {{baseUrl}}/jogos
+Content-Type: application/json
+
+{
+  "titulo": "Grand Theft Auto V",
+  "idGenero": 1
+}
+
+### Listar Jogos (Traz o gênero e as plataformas de cada jogo)
+GET {{baseUrl}}/jogos
+Accept: application/json
+
+### Relacionar Jogo com Plataformas
+### (Exemplo: Relaciona o Jogo ID 1 com as Plataformas IDs 1 e 2)
+POST {{baseUrl}}/jogos/1/plataformas
+Content-Type: application/json
+
+{
+  "plataformaIds": [1, 2]
+}
